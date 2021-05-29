@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
+import {BrowserRouter} from 'react-router-dom';
 import 'font-awesome/css/font-awesome.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -8,9 +9,9 @@ import reportWebVitals from './reportWebVitals';
 
 
 ReactDOM.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <App />
-  </React.StrictMode>,
+    </BrowserRouter>,
   document.getElementById('root')
 );
 
