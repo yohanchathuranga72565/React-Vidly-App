@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ( { user } ) => {
     return ( 
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -20,12 +20,19 @@ const NavBar = () => {
                     <li className="nav-item">
                     <NavLink className="nav-link" to="/rentals">Rentals</NavLink>
                     </li>
-                    <li className="nav-item">
-                    <NavLink className="nav-link" to="/login">Login</NavLink>
-                    </li>
-                    <li className="nav-item">
-                    <NavLink className="nav-link" to="/register">Register</NavLink>
-                    </li>
+                   {!user && (
+                   <React.Fragment>
+                        <NavLink className="nav-link nav-item" to="/login">Login</NavLink>
+                        <NavLink className="nav-link nav-item" to="/register">Register</NavLink>
+                    </React.Fragment>)
+                    }
+                    {user && (
+                    <React.Fragment>
+                            <NavLink className="nav-link nav-item" to="/profile">{user.name}</NavLink>
+                            <NavLink className="nav-link nav-item" to="/logout">Logout</NavLink>
+                    </React.Fragment>
+                    )}
+                    
                 </ul>
                 </div>
             </div>
